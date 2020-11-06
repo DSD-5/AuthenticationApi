@@ -1,4 +1,4 @@
-package com.telefonica.pe.app.eureka;
+package com.tutiempolibro.app.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
