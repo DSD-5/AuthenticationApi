@@ -12,6 +12,7 @@
 	<artifactId>service-zuul-server</artifactId>
 	<version>1.0.0</version>
 	<name>service-zuul-server</name>
+	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
