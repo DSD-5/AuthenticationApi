@@ -31,12 +31,16 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 	// TODO Auto-generated method stub
-	http.authorizeRequests().antMatchers("/api/segurity/oauth/**").permitAll().antMatchers(HttpMethod.GET, "/api/book/**").permitAll()
+	http.authorizeRequests().antMatchers("/api/segurity/oauth/**").permitAll()
+		.antMatchers(HttpMethod.GET, "/api/book/**").permitAll()
+		.antMatchers("/api/customer/management/**").permitAll()
 		.antMatchers(HttpMethod.GET, "/api/shoppingcart/**", "/api/rentsales/**", "/api/usuarios/**").hasAnyRole("ADMIN", "USER")
-		.antMatchers(HttpMethod.POST, "/api/usuarios/**").hasRole("ADMIN").antMatchers(HttpMethod.PUT, "/api/usuarios/**")
-		.hasRole("ADMIN").antMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST, "/api/shoppingcart/**", "/api/rentsales/**").hasRole("USER").anyRequest().authenticated()
-		.and().cors().configurationSource(corsConfigurationSource());
+		.antMatchers(HttpMethod.POST, "/api/usuarios/**","/api/books/management/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET, "/api/books/management/**").hasAnyRole("ADMIN", "USER")
+		.antMatchers(HttpMethod.PUT, "/api/usuarios/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST, "/api/shoppingcart/**", "/api/rentsales/**").hasRole("USER")
+		.anyRequest().authenticated().and().cors().configurationSource(corsConfigurationSource());
 
     }
 

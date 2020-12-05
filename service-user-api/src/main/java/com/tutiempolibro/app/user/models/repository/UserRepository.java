@@ -13,6 +13,4 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
     @RestResource(path="obtenerUsuario")
     public User findByUsuario(@Param("usuario") String usuario);
     
-    
-    
 }
